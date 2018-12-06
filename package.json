@@ -1,0 +1,19 @@
+{
+  "name": "js-lectures",
+  "version": "1.0.0",
+  "description": "The lecture book for TMS School",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sulemanof/js-lectures.git"
+  },
+  "author": "Daniil Suleiman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sulemanof/js-lectures/issues"
+  },
+  "homepage": "https://github.com/sulemanof/js-lectures#readme"
+}
