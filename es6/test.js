@@ -1,5 +1,6 @@
-var assert = require('assert');
-var filter = require('./filter');
+let assert = require('assert');
+let filter = require('./filter');
+let { films, shell, stock } = require('./proxy');
 
 describe('es6 features test', function() {
     describe('array filter', function() {
@@ -32,6 +33,33 @@ describe('es6 features test', function() {
                 filter(5,5,3,2,2,3,3,3,4,5,6,6,7,7,8,5,5,3,3,4,4,5),
                 [ 5, 3, 2, 4, 6, 7, 8 ]
             );
+        });
+    });
+
+    describe('films shell', () => {
+        it('test 1', () => {
+            assert.equal(
+                shell['Spider-man'],
+                films['Spider-man']
+            )
+        });
+        it('test 2', () => {
+            assert.notEqual(
+                shell['Spider-man'],
+                films['Spider-man']
+            )
+        });
+        it('test 3', () => {
+            assert.equal(
+                shell['Thor'],
+                films['Thor']
+            )
+        });
+        it('test 4', () => {
+            assert.notEqual(
+                shell['Thor'],
+                films['Thor']
+            )
         });
     });
 });
