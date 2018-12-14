@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/sulemanof/js-lectures#readme",
   "devDependencies": {
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
     "mocha": "^5.2.0"
   }
 }
