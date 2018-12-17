@@ -7,3 +7,7 @@
 ### [Js Classes](https://kirilknysh.github.io/js-classes-talk/#/)
 - [homework](./js-classes/readme.md)
 - [youtube about JS classes video by kiril knysh](https://youtu.be/O462BetYst8)
+### [Async development (Promises)](http://andrei-yanovich.github.io/promise-talk/#/)
+- [homework](./async-development/readme.md)
+- [browser event loop](https://itnext.io/how-javascript-works-in-browser-and-node-ab7d0d09ac2f)
+- [free weather API](https://www.apixu.com/)
