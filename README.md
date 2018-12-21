@@ -11,3 +11,4 @@
 - [homework](./async-development/readme.md)
 - [browser event loop](https://itnext.io/how-javascript-works-in-browser-and-node-ab7d0d09ac2f)
 - [free weather API](https://www.apixu.com/)
+### [DOM, BOM, browser storage](https://slides.com/danielsuleiman/dombom/#/)
