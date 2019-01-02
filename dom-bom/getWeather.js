@@ -2,4 +2,4 @@ const getWeather = value => fetch(`http://api.apixu.com/v1/current.json?key=39e2
   .then(response => response.json())
   .catch(error => console.error(error));
 
-module.exports = getWeather;
+export { getWeather };

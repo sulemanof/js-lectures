@@ -4,7 +4,8 @@
   "description": "The lecture book for TMS School",
   "main": "index.js",
   "scripts": {
-    "test-es6": "mocha ./es6"
+    "test-es6": "mocha ./es6",
+    "babelify": "browserify ./dom-bom/index.js -o ./dom-bom/bundle.js -t [ babelify --presets [ @babel/preset-env ]  ]"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,9 @@
   },
   "homepage": "https://github.com/sulemanof/js-lectures#readme",
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babelify": "^10.0.0",
     "eslint": "^5.10.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",

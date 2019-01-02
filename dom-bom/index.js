@@ -1,6 +1,7 @@
-const { get } = require('lodash');
-const $ = require("jquery");
-const getWeather = require('./getWeather');
+import $ from 'jquery';
+import { get } from 'lodash';
+
+import { getWeather } from './getWeather';
 
 const input = $('#input');
 const button = $('#button');
@@ -10,7 +11,7 @@ const tdata = $('#tableData');
 const createRawData = ({ current, location }) => {
   if (!location || !current) return;
 
-  const name = get(location, 'name')
+  const name = get(location, 'name');
   const { country } = location;
   const { temp_c, temp_f } = current;
 
@@ -27,5 +28,5 @@ const createRawData = ({ current, location }) => {
 button.on('click', () => getWeather(input.val()).then(createRawData));
 
 $('#position').on('click', () => {
-  navigator.geolocation.getCurrentPosition(({coords}) => getWeather(`${coords.latitude},${coords.longitude}`).then(createRawData));
+  navigator.geolocation.getCurrentPosition(({ coords }) => getWeather(`${coords.latitude},${coords.longitude}`).then(createRawData));
 });
