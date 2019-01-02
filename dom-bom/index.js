@@ -1,32 +1,31 @@
-const input = document.getElementById('input');
-const button = document.getElementById('button');
-const tbody = document.getElementById('tbody');
-const tdata = document.getElementById('tableData');
+const { get } = require('lodash');
+const $ = require("jquery");
+const getWeather = require('./getWeather');
+
+const input = $('#input');
+const button = $('#button');
+const tbody = $('#tbody');
+const tdata = $('#tableData');
 
 const createRawData = ({ current, location }) => {
   if (!location || !current) return;
-  const { name, country } = location;
+
+  const name = get(location, 'name')
+  const { country } = location;
   const { temp_c, temp_f } = current;
 
   const raw = `<tr><td>${name}</td><td>${country}</td><td>${temp_c}</td><td>${temp_f}</td></tr>`;
 
-  tbody.innerHTML += raw;
-  input.value = '';
+  tbody.append(raw);
+  input.val('');
 
-  if (!tdata.classList.contains('visible')) {
-    tdata.classList.add('visible');
+  if (!tdata.hasClass('visible')) {
+    tdata.addClass('visible');
   }
 };
 
-const getWeather = (value) => {
-  fetch(`http://api.apixu.com/v1/current.json?key=39e2192ab5be4805b4c190756181912&q=${value || input.value}`)
-    .then(response => response.json())
-    .then(createRawData)
-    .catch(error => console.error(error));
-};
+button.on('click', () => getWeather(input.val()).then(createRawData));
 
-button.addEventListener('click', getWeather);
-
-position.addEventListener('click', () => {
-  navigator.geolocation.getCurrentPosition(({coords}) => getWeather(`${coords.latitude},${coords.longitude}`));
+$('#position').on('click', () => {
+  navigator.geolocation.getCurrentPosition(({coords}) => getWeather(`${coords.latitude},${coords.longitude}`).then(createRawData));
 });
