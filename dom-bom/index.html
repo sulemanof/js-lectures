@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form id="form" class="searchBar">
+        <input id="input" class="input" type="search" placeholder="Type a city..." />
+        <input id ="button" class='button' type="submit" value="Find" />    
+    </form>
+    <div class="controlPanel">
+        <button id="position" class='button'>My weather</button>
+        <button id="clear" class='button'>Clear</button>        
+    </div>
+    <table class="tableData" id="tableData">
+        <thead>
+            <td>City</td>
+            <td>Country</td>
+            <td>t, &#8451</td>
+            <td>t, &#8457</td>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+    <script src="index.js"></script>    
+</body>
+</html>
