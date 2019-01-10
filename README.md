@@ -15,3 +15,5 @@
 - [homework example](./dom-bom/homework.gif)
 ### [NPM](https://slides.com/danielsuleiman/npm#/)
 - [task](./npm/task.md)
+### [Webpack 4](https://slides.com/danielsuleiman/webpack/#/)
+- [homework](./webpack/homework.md)
