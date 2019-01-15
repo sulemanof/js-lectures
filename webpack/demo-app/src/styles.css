@@ -1,0 +1,71 @@
+.tableData {
+    display: none;
+    border: 2px solid grey;
+    border-spacing: unset;
+    margin: 20px auto;
+}
+
+.tableData.visible {
+    display: table;
+}
+
+.searchBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+td {
+    border: 1px solid grey;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    min-width: 120px;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+tr {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+thead {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.button {
+    margin: 30px;
+    height: 40px;
+    border: 2px solid grey;
+    border-radius: 10px;
+    width: 60px;
+    font-family: cursive;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgb(163, 103, 103);
+    color: white;
+}
+
+input.input {
+    border: 2px solid #808080ad;
+    height: 40px;
+    border-radius: 10px;
+    width: 240px;
+    font-family: cursive;
+    font-size: 20px;
+}
+
+input:focus {
+    outline: none;
+}
+
+#position {
+    width: 200px;
+    margin: auto;
+}
