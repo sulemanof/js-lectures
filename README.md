@@ -17,3 +17,6 @@
 - [task](./npm/task.md)
 ### [Webpack 4](https://slides.com/danielsuleiman/webpack/#/)
 - [homework](./webpack/homework.md)
+### [Single Page Application](https://slides.com/danielsuleiman/spa#/)
+### [React](https://slides.com/danielsuleiman/react#/)
+- [Useful Links](./react/useful-links.md)

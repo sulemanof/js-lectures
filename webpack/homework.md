@@ -19,5 +19,6 @@ Your task is to become more familiar with [Webpack 4](https://webpack.js.org) an
 - use all (known from the lecture) type of plugins and loaders (CleanWebpackPlugin, HtmlWebpackPlugin, 'style-loader', 'css-loader', 'raw-loader', 'file-loader'
 )
 - include any pretty font into your app (e.x. [fontAwesome](https://fontawesome.com/) for icons)
+- create a PR, add [me](https://github.com/sulemanof) as a reviewer
 ---
 You can easily host your production code on [GitHub Pages](https://pages.github.com/) (serve only the `dist` folder for this purpose)
