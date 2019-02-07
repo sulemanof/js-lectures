@@ -9,10 +9,14 @@
     display: table;
 }
 
-.searchBar {
+.navBar, .container, .searchBar {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.container {
+    flex-direction: column;
 }
 
 td {
@@ -38,19 +42,16 @@ thead {
 
 .button {
     margin: 30px;
-    height: 40px;
-    border: 2px solid rgb(192, 26, 233);
-    border-radius: 10px;
-    min-width: 60px;
-    font-family: cursive;
-    font-size: 16px;
-    cursor: pointer;
 }
 
-.button:hover {
-    background-color: rgb(163, 103, 103);
-    color: white;
+.notFound {
+    width: 50%;
+    height: 50%;
+    display: block;
+    margin: auto;
+    position: relative;
 }
+
 
 .input {
     border: 2px solid #808080ad;
