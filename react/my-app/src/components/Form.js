@@ -23,11 +23,11 @@ class Form extends Component {
             <form onSubmit={this.handleSubmit} className='searchBar'>
                 <input 
                     type='text'
-                    className='input'
+                    className='form-control form-control-lg'
                     value={this.state.value}
                     onChange={this.handleChange}
                     placeholder={this.props.placeholder} />
-                <button className='button'>Search</button>
+                <button className='button btn btn-light'>Search</button>
             </form>
         )
     }
