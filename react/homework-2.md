@@ -15,6 +15,8 @@ Steps to implement:
 - DO NOT RENDER MORE THAN 15 ROWS ON THE PAGE! (always limit your range);
 ---
 Here is the final example:
+
+
 ![Final example](./emoji/emoji-search.gif)
 ---
 [Homework guidelines](../homework-guidelines.md)
