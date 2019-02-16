@@ -2,8 +2,8 @@
 ---
 - create a branch `todo-app` from `master`;
 - create a `todo-app` folder inside your homework's folder (if you are using `create-react-app` do it with `npx` command);
-- your `src` folder structure should have `components`, `containers`, `state-management`, `helpers` folders and should look like: ![src folder structure](./assets/src.png)
-- the `state-management` folder should contain `actions`, `reducers`, `constants` folders, it also should have an `inex.js` file with combined reducers: ![state-management folder structure](./assets/state-management.png)
+- your `src` folder structure should have `components`, `containers`, `state-management`, `helpers` folders and should look like: ![src folder structure](./assets/src.PNG)
+- the `state-management` folder should contain `actions`, `reducers`, `constants` folders, it also should have an `inex.js` file with combined reducers: ![state-management folder structure](./assets/state-management.PNG)
 - create reusable components in `components` folder;
 - create `containers` using `connect()` from `react-redux`;
 - your app should have the next requirements: 
