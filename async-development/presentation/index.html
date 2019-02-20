@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>promise</title>
+
+    <meta name="description" content="promise talk">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="bower_components/reveal.js/css/theme/beige.css" id="theme">
+    <link rel="stylesheet" href="custom.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ?
+          'bower_components/reveal.js/css/print/pdf.css' :
+          'bower_components/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="bower_components/reveal.js/lib/css/zenburn.css">
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>Promise()</h1>
+        </section>
+        <section>
+          <h1>Demo</h1>
+          <img src="imgs/callback.jpg" class="fragment">
+        </section>
+        <section>
+          <section>
+            <h2>What the heck is a Promise?</h2>
+            <p class="fragment">Promise is a special state storage object. <br>
+              At first it has - 'pending', after either 'fulfilled' or 'rejected'.</p>
+            <img class="fragment" src="imgs/promiseInit.png" style="border: none; box-shadow: none; width: 420px">
+          </section>
+          <section>
+            <p>promise object can have 2 types of callbacks</p>
+            <ul>
+              <li>onFulfilled - fires when promise is fulfilled</li>
+              <li>onRejected - when promise is rejected</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Here is how we create them</h3>
+            <pre><code class="javascript" data-trim>
+var promise = new Promise(function(resolve, reject) {
+  // do a thing, possibly async, then…
+  if (/* everything turned out fine */) {
+    resolve("Stuff worked!");
+  }
+  else {
+    reject(Error("It broke"));
+  }
+}
+            </code></pre>
+            <h3>A univesal API to set callbacks</h3>
+            <pre><code class="javascript" data-trim>
+promise.then(onFulfilled, onRejected)
+            </code></pre>
+            <p>if a promise was rejected/resolved then his state can't be changed anymore.</p>
+          </section>
+          <section>
+            <h3>Promisifying XMLHttpRequest</h3>
+            <pre><code data-trim class="javascript">
+function httpGet(url) {
+
+  return new Promise(function(resolve, reject) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+
+    xhr.onload = function() {
+      if (this.status == 200) {
+        resolve(this.response);
+      } else {
+        var error = new Error(this.statusText);
+        error.code = this.status;
+        reject(error);
+      }
+    };
+
+    xhr.onerror = function() {
+      reject(new Error("Network Error"));
+    };
+
+    xhr.send();
+  });
+}
+            </code></pre>
+          </section>
+          <section>
+            <h3>Now let's use it</h3>
+            <pre><code data-trim class="javascript">
+httpGet('talk.json')
+  .then(function(response) {
+      console.log("Success!", response);
+    }, function(error) {
+      console.error("Failed!", error);
+  });
+            </code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>That isn't the end! </h2>
+             <p>You can <b>chain</b> then's() to transform values or run additional async actions one after another.
+            </p>
+          </section>
+          <section>
+            <h3>Transforming values</h3>
+            <pre><code data-trim class="javascript">
+var promise = new Promise(function(resolve, reject) {
+  resolve(1);
+});
+
+promise
+  .then(function(val) {
+    console.log(val); // 1
+    return val + 2;
+  })
+  .then(function(val) {
+    console.log(3); // 3
+  });
+            </code></pre>
+          </section>
+          <section>
+            <h3>More practical example</h3>
+            <pre><code data-trim class="javascript">
+              httpGet('text.json')
+  .then(JSON.parse) // json.parse takes one arg and returns json
+  .then(function(response) {
+    console.log("Yey JSON!", response);
+  });
+            </code></pre>
+          </section>
+          <section>
+            <h3>Async example</h3>
+            <pre><code class="javascript">
+function getJSON(url) {
+  return httpGet(url).then(JSON.parse);
+}
+
+getJSON('/data.json')
+  .then(function(data) {
+    return getJSON('api/user/' + data.userId);
+  })
+  .then(user => {
+    console.log(user);
+  });
+            </code></pre>
+            <p>If you return another promise inside then(), next then() in queue will be called only after your promise will be resolved.</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Error handling</h2>
+            <div class="group">
+              <pre><code class="javascript" data-trim>
+asyncThing1()
+.then(function() {
+  return asyncThing2();
+}).then(function() {
+  return asyncThing3();
+}).catch(function(err) {
+  return asyncRecovery1();
+}).then(function() {
+  return asyncThing4();
+}, function(err) {
+  return asyncRecovery2();
+}).catch(function(err) {
+  console.log("Don't worry about it");
+}).then(function() {
+  console.log("All done!");
+});
+              </code></pre>
+            </div>
+            <div class="group">
+              <iframe width="480px" height="480px" src="imgs/promise-flow.svg" frameborder="0"></iframe>
+            </div>
+            <small>This example was taken from <a href="http://www.html5rocks.com/en/tutorials/es6/promises/#toc-error-handling">html5rocks</a>, because it rocks!</small>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Static methods</h3>
+            <ul>
+              <li class="fragment">Promise.resolve(thenable);
+                <div>Make a new promise from the <i>thenable</i>.</div>
+              </li>
+              <li class="fragment">Promise.resolve(obj);
+                <div>Make a promise that fulfills to obj.</div>
+              </li>
+              <li class="fragment">Promise.reject(obj);
+                <div>Make a promise that rejects to obj.</div>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>Promise.all(array);
+                <div>Make a promise that fulfills when every item in the array fulfills, and rejects if (and when) any item rejects.</div>
+              </li>
+              <li class="fragment">Promise.race(array);
+                <div>Make a Promise that fulfills as soon as any item fulfills, or rejects as soon as any item rejects.</div>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>Examples</h3>
+            <pre><code class="javascript" data-trim>
+Promise.all([
+  getJSON('/facebookApi/...'),
+  getJSON('/twitterApi/...'),
+  getJSON('/user/...')
+]).then(function(arrayOfResults) {
+// ...
+})
+            </code></pre>
+          </section>
+          <section>
+            <h3>Cache service calls</h3>
+            <pre><code class="javascript" data-trim>
+var searchTwitter = function(username) {
+  var cache = {};
+  if (!cache[username]) {
+    cache[username] = getJSON('https://api.twitter.com/1.1/users/search.json?q=' + username);
+  }
+
+  return cache[username];
+}
+searchTwitter('famousPerson')
+  .then(function(data){
+    console.log(data.results);
+    //Made a call
+});
+searchTwitter('famousPerson')
+  .then(function(data){
+    console.log(data.results);
+    //Did NOT make a call
+});
+            </code></pre>
+          </section>
+          <section>
+            <h3>Prettify the code</h3>
+            <pre><code class="javascript" data-trim>
+var wait = function(duration) {
+  return new Promise(function(resolve) {
+    setTimeout(resolve, duration);
+  })
+};
+wait(500).then(function() {
+ console.log('Called!');
+}); // will be called after 500ms
+            </code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <p>Promises are part of es6(es2015) standart. <br>
+            And they are already implemented in most browsers: <br>
+            Chrome 32, Opera 19, Firefox 29, Safari 8 & Microsoft Edge.
+            </p>
+            <p>Anyway polyfill is here <a href="https://github.com/jakearchibald/es6-promise#readme">https://github.com/jakearchibald/es6-promise</a></p>
+          </section>
+          <section>
+            <p>Before the standart promises have been around in form of libraries, such as:</p>
+            <ul>
+              <li><a href="https://github.com/kriskowal/q">Q</a></li>
+              <li><a href="https://github.com/cujojs/when">when</a></li>
+              <li><a href="http://msdn.microsoft.com/en-us/library/windows/apps/br211867.aspx">WinJS</a></li>
+              <li><a href="https://github.com/tildeio/rsvp.js">RSVP.js</a></li>
+            </ul>
+            <p>The above and other JavaScript promises share a common, standardised behaviour called
+              <a href="https://github.com/promises-aplus/promises-spec">Promises/A+</a>.
+            </p>
+            <p>jQuery have similar objects called <a href="http://api.jquery.com/category/deferred-object/">Deferreds</a><br>
+              Despite deferreds aren't Promise/A+ compliant, they have rich functionality also.
+            </p>
+          </section>
+          <section>
+            <h4>Compatibility with other libraries</h4>
+            <p>es6 promises will treat anything with a then method (so called <i>thenable</i>) as promise-like. <br>
+              <pre><code class="javascript">
+var q = Q.defer(),
+    dfd = jQuery.Deferred();
+
+Promise.all([q, dfd])
+       .then(/* ..... */);
+              </code></pre>
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>fetch API</h1>
+          </section>
+          <section>
+            <h2>fetch() is next gen XHR</h2>
+            <div class="group">
+              <pre><code class="javascript" data-trim>
+var xhr = new XMLHttpRequest();
+xhr.open('GET', url);
+xhr.responseType = 'json';
+
+xhr.onload = function() {
+  console.log(xhr.response);
+};
+
+xhr.onerror = function() {
+  console.log("Booo");
+};
+
+xhr.send();
+              </code></pre>
+            </div>
+            <div class="group">
+             <pre><code class="javascript" data-trim>
+fetch(url).then(function(response) {
+  return response.json();
+}).then(function(data) {
+  console.log(data);
+}).catch(function() {
+  console.log("Booo");
+});
+
+//or with es6 arrows
+fetch(url)
+.then(r => r.json())
+.then(data => console.log(data))
+.catch(e => console.log("Booo"))
+             </code></pre>
+            </div>
+          </section>
+          <section>
+            <h2>More examples</h2>
+            <div class="group">
+              <h4>Post JSON</h4>
+             <pre><code class="javascript" data-trim>
+fetch('/users', {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    name: 'Hubot',
+    login: 'hubot',
+  })
+})
+             </code></pre>
+            </div>
+            <div class="group">
+              <h4>HTTP errors</h4>
+             <pre><code class="javascript" data-trim>
+function checkStatus(response) {
+  if (response.status >= 200 &&
+      response.status < 300) {
+    return response
+  } else {
+    var error = new Error(
+               response.statusText)
+    error.response = response
+    throw error
+  }
+}
+
+function parseJSON(response) {
+  return response.json()
+}
+
+fetch('/users')
+  .then(checkStatus)
+  .then(parseJSON)
+  .then(function(data) {
+   console.log('request succeeded, data)
+  }).catch(function(error) {
+    console.log('request failed', error)
+  })
+             </code></pre>
+            </div>
+          </section>
+          <section>
+            <h3>Streams</h3>
+            <p class="fragment"><i>response.body</i> is a ReadableStream</p>
+            <p class="fragment"><a target="_blank" href="https://domenic.github.io/streams-demo/">DEMO</a></p>
+          </section>
+          <section>
+            <h2>Stream readers & cloning</h2>
+            <pre><code class="javascript" data-trim>
+fetch(url).then(function(response) {
+  return response.json();
+});
+            </code></pre>
+            <ul>
+              <li>.arrayBuffer()</li>
+              <li>.blob()</li>
+              <li>.formData()</li>
+              <li>.json()</li>
+              <li>.text()</li>
+            </ul>
+            <p class="fragment">These are true stream readers, meaning they drain the stream</p>
+          </section>
+
+          <section>
+            <p>The call to .text() fails as the stream has already been read. You can work around this using .clone():</p>
+            <pre><code class="javascript" data-trim>
+fetch(url).then(function(response) {
+    return response.clone().json().catch(function() {
+    return response.text();
+  });
+});
+            </code></pre>
+          </section>
+          <section>
+            <h2>Further reading</h2>
+            <p><a href="https://jakearchibald.com/2015/thats-so-fetch/">https://jakearchibald.com/2015/thats-so-fetch/</a></p>
+            <p><a href="https://github.com/github/fetch">fetch polyfill from github</a></p>
+            <p><a href="https://fetch.spec.whatwg.org/">Fetch specification</a></p>
+          </section>
+        </section>
+        <section>
+          <h1>talk.resolve()</h1>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="bower_components/reveal.js/lib/js/head.min.js"></script>
+    <script src="bower_components/reveal.js/js/reveal.js"></script>
+
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'bower_components/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'bower_components/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'bower_components/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'bower_components/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'bower_components/reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+
+  </body>
+</html>

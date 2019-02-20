@@ -1,0 +1,56 @@
+.reveal a {
+    color: #f36912;
+}
+
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #f36912; }
+
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #f36912; }
+
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #f36912; }
+
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #f36912; }
+
+.reveal .controls .navigate-left.enabled:hover {
+  border-right-color: #f79f68; }
+
+.reveal .controls .navigate-right.enabled:hover {
+  border-left-color: #f79f68; }
+
+.reveal .controls .navigate-up.enabled:hover {
+  border-bottom-color: #f79f68; }
+
+.reveal .controls .navigate-down.enabled:hover {
+  border-top-color: #f79f68; }
+
+  .reveal .progress span {
+      background: #f36912;
+  }
+
+.-highlight {
+    color: #3eafcc;
+}
+
+.reveal h2 {
+    font-size: 1.4em;
+}
+
+.reveal h3 {
+    text-transform: none;
+}
+
+.reveal .slides section .minimal-code {
+	margin: 0px auto;
+	box-shadow: none;
+    line-height: 1em;
+}
+.reveal .slides section .minimal-code code {
+	padding: 0 5px;
+}

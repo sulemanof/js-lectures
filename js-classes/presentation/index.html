@@ -1,0 +1,491 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<meta name="description" content="JavaScript classes">
+
+		<title>JS classes</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<link rel="stylesheet" href="css/overrides.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement('link');
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName('head')[0].appendChild(link);
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>JS classes</h1>
+				</section>
+				<section>
+					<section>
+						<h2>What is <span class="-highlight">class</span>?</h2>
+						<p class="fragment" data-fragment-index="0"><span class="-highlight">Class</span> is a schema</p>
+						<img class="fragment" data-fragment-index="0" data-src="img/blueprint.jpg" style="width: 50%" />
+					</section>
+					<section>
+						<h2>What is <span class="-highlight">object</span>?</h2>
+						<p class="fragment" data-fragment-index="0"><span class="-highlight">Object</span> is a `real` <span class="-highlight">instance</span> of schema</p>
+						<img class="fragment" data-fragment-index="0" data-src="img/lego-toys.jpg" style="width: 70%" />
+
+                        <aside class="notes">
+							why `real`?
+						</aside>
+					</section>
+                    <section>
+						<h2>What is <span class="-highlight">object</span>?</h2>
+						<p>unordered dynamic collection of properties (key-value pairs)</p>
+                        <ul class="fragment" style="list-style: none;">
+                            <li><span class="-highlight">key</span> - unique (in scope of object) string</li>
+                            <li><span class="-highlight">value</span> - primitive, object, function</li>
+                        </ul>
+					</section>
+                    <section>
+						<h2>What is <span class="-highlight">object</span>?</h2>
+						<h3><span class="-highlight">Everything</span> is an object</h3>
+                        <pre class="fragment"><code>
+var obj = { prop0: 0 };
+obj.prop1 = 1;
+
+var func = function() {};
+func.prop1 = 1;
+
+var arr = [1, 2, 4];
+arr.prop1 = 1;
+						</pre></code>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Classes in JS</h2>
+						<ul>
+							<li class="fragment">object literals (not really classes)</li>
+							<li class="fragment">functions (more like classes but still not)</li>
+							<li class="fragment"><span class="-highlight">ES2015</span> classes</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Classes in JS <span class="-highlight">object literals</span></h2>
+						<pre class="fragment"><code>
+function legoMan(name) {
+    return {
+        name: name,
+        say: function(message) {
+            console.log(this.name + ': "' + message + '"');
+        }
+    };
+}
+						</pre></code>
+                        <pre class="fragment"><code>
+var alex = legoMan('Alex');
+alex.say('Hello, Kattie!'); // Alex: "Hello, Kattie!"
+
+var kattie = legoMan('Kattie');
+kattie.say('No'); // Kattie: "No"
+						</pre></code>
+					</section>
+                    <section>
+                        <h2>Classes in JS <span class="-highlight">(bad) functions</span></h2>
+                        <pre class="fragment"><code>
+function LegoMan(name) {
+    this.name = name;
+    this.say = function(message) {
+        console.log(this.name + ': "' + message + '"');
+    }
+}
+						</pre></code>
+                        <pre class="fragment"><code>
+var alex = new LegoMan('Alex');
+alex.say('Hello, Kattie!'); // Alex: "Hello, Kattie!"
+
+var kattie = new LegoMan('Kattie');
+kattie.say('No'); // Kattie: "No"
+						</pre></code>
+                        <aside class="notes">
+							capital "L"; why "bad"?
+						</aside>
+                    </section>
+                    <section>
+                        <h2>Classes in JS <span class="-highlight">(good) functions</span></h2>
+                        <pre class="fragment"><code>
+function LegoMan(name) {
+    this.name = name;
+}
+
+LegoMan.prototype.say = function(message) {
+    console.log(this.name + ': "' + message + '"');
+}
+						</pre></code>
+                        <pre class="fragment"><code>
+var alex = new LegoMan('Alex');
+alex.say('Hello, Kattie!'); // Alex: "Hello, Kattie!"
+
+var kattie = new LegoMan('Kattie');
+kattie.say('No'); // Kattie: "No"
+						</pre></code>
+                        <aside class="notes">
+							prototype - what is it?
+						</aside>
+                    </section>
+                    <section>
+                        <h2>Classes in JS <span class="-highlight">functions</span></h2>
+                        <h3>What is <span class="-highlight">prototype</span>?</h3>
+                        <ul>
+                            <li class="fragment">technically - a regular JS object</li>
+                            <li class="fragment">property of <span class="-highlight">every</span> function</li>
+                            <li class="fragment">created by JS environment</li>
+                        </ul>
+                        <aside class="notes">
+							before continue - objects' prototypes
+						</aside>
+                    </section>
+                    <section>
+                        <h2>Classes in JS <span class="-highlight">functions</span></h2>
+                        <h3><span class="-highlight">[[Prototype]]</span></h3>
+                        <ul>
+                            <li class="fragment">technically - a regular object</li>
+                            <li class="fragment">property of <span class="-highlight">every</span> object</li>
+                            <li class="fragment">accessible via <span class="-highlight">__proto__</span></li>
+                        </ul>
+                        <aside class="notes">
+							__proto__ is a part of ES2015 standart, but only to have a standart; in general - deprecated
+						</aside>
+                    </section>
+                    <section>
+                        <h2>Classes in JS <span class="-highlight">functions</span></h2>
+<pre class="minimal-code"><code>
+function LegoMan(name) {
+    this.name = name;
+}
+</pre></code>
+<pre class="fragment minimal-code" data-fragment-index="0"><code>
+LegoMan.prototype.say = function(message) {
+    console.log(this.name + ': "' + message + '"');
+}
+</pre></code>
+<pre class="fragment minimal-code" data-fragment-index="1"><code>
+var alex = new LegoMan('Alex');
+</pre></code>
+                        <div style="position: relative;">
+                            <img data-src="img/protolinks-0.png" style="width: 50%;" />
+                            <img class="fragment" data-fragment-index="0" data-src="img/protolinks-1.png" style="width: 50%; position: absolute; transform: translateX(-100%);" />
+                            <img class="fragment" data-fragment-index="1" data-src="img/protolinks-2.png" style="width: 50%; position: absolute; transform: translateX(-100%);" />
+                        </div>
+                        <aside class="notes">
+							Function.prototype - special function object
+						</aside>
+                    </section>
+                    <section>
+						<h2>Classes in JS <span class="-highlight">ES2015 classes</span></h2>
+						<pre class="fragment"><code>
+class LegoMan {
+    constructor(name) {
+        this.name = name;
+    }
+
+    say(message) {
+        console.log(this.name + ': "' + message + '"');
+    }
+}
+						</pre></code>
+                        <pre class="fragment"><code>
+const alex = new LegoMan('Alex');
+alex.say('Hello, Kattie!'); // Alex: "Hello, Kattie!"
+
+const kattie = new LegoMan('Kattie');
+kattie.say('Hello!'); // Kattie: "Hello!"
+						</pre></code>
+                        <aside class="notes">
+							syntax sugar; no "function" keyword; semicolon is optional
+						</aside>
+					</section>
+                    <section>
+						<h2>Classes in JS <span class="-highlight">ES2015 classes</span></h2>
+						<pre class="fragment"><code>
+// TypeError: Class constructor LegoMan cannot be invoked without 'new'
+const alex = LegoMan('Alex');
+						</pre></code>
+                        <pre class="fragment"><code>
+// SyntaxError: A class may only have one constructor
+class LegoMan {
+    constructor(name) { }
+
+    constructor(name) { }
+}
+						</pre></code>
+                        <aside class="notes">
+							more strict than functions-creators
+						</aside>
+					</section>
+                    <section>
+						<h2>Classes in JS <span class="-highlight">ES2015 classes</span></h2>
+						<pre class="fragment"><code>
+// ReferenceError: LegoMan is not defined
+const alex = new LegoMan('Alex');
+class LegoMan {
+    constructor(name) {
+        this.name = name;
+    }
+}
+						</pre></code>
+                        <pre class="fragment"><code>
+LegoMan.prototype.constructor === LegoMan; // true
+						</pre></code>
+                        <aside class="notes">
+							more strict than functions-creators
+						</aside>
+					</section>
+                    <section>
+						<h2>Classes in JS <span class="-highlight">ES2015 classes</span></h2>
+						<pre class="fragment"><code>
+class LegoMan {
+    constructor(name) {
+        this.name = name;
+        this.age = 0;
+    }
+
+    set newAge(value) {
+        this.age = value;
+    }
+
+    get represent() {
+        return `My name is ${this.name}. I am ${this.age} years old.`;
+    }
+}
+						</pre></code>
+                        <pre class="fragment"><code>
+const alex = new LegoMan('Alex');
+alex.represent // My name is Alex. I am 0 years old.
+alex.newAge = 18;
+alex.represent // My name is Alex. I am 18 years old.
+						</pre></code>
+                        <aside class="notes">
+							new features in ES2015 classes
+						</aside>
+					</section>
+                    <section>
+						<h2>Classes in JS <span class="-highlight">ES2015 classes</span></h2>
+						<pre class="fragment"><code>
+class LegoMan {
+    constructor(name) {
+        this.name = name;
+    }
+
+    static getInfo(man) {
+        return `This is ${man.name}.`;
+    }
+}
+						</pre></code>
+                        <pre class="fragment"><code>
+const alex = new LegoMan('Alex');
+LegoMan.getInfo(alex); // This is Alex
+alex.getInfo // undefined
+						</pre></code>
+                        <aside class="notes">
+							new features in ES2015 classes
+						</aside>
+					</section>
+				</section>
+                <section>
+                    <h2>typeof</h2>
+                    <pre class="fragment"><code>
+typeof 132 // "number"
+typeof 2.71 // "number"
+typeof 'Alex' // "string"
+typeof LegoMan // "function"
+typeof true // "boolean"
+typeof {} // "object""
+					</pre></code>
+                    <pre class="fragment"><code>
+typeof NaN // "number"
+typeof new Number(132) // "object"
+typeof [1, 2, 3] // "object", Array.isArray should be used
+typeof null // "object"
+					</pre></code>
+                </section>
+                <section>
+                    <h2>instanceof</h2>
+                    <pre class="fragment"><code>
+class LegoMan {
+    constructor(name) {
+        this.name = name;
+    }
+}
+
+const alex = new LegoMan('Alex');
+alex instanceof LegoMan // true
+alex instanceof Object // true
+					</pre></code>
+                    <pre class="fragment"><code>
+alex instanceof LegoMan
+
+LegoMan[@@hasInstance](alex)
+					</pre></code>
+                    <aside class="notes">
+						compares prototypes => may lie!!! prototype can be overriden with regular JS
+					</aside>
+                </section>
+                <section>
+                    <section>
+                        <h2>Inheritance</h2>
+                        <h4 class="fragment"><span class="-highlight">Classical</span> (C++, C#, Java)</h4>
+                        <ul>
+                            <li class="fragment">classes inherit from classes</li>
+                            <li class="fragment">and create subclass relationships: hierarchical class taxonomies</li>
+                        </ul>
+                        <h4 class="fragment"><span class="-highlight">Prototypal</span> (Lua, JavaScript)</h4>
+                        <ul>
+                            <li class="fragment">A prototype is a working object instance</li>
+                            <li class="fragment">Objects inherit directly from other objects</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Inheritance</h2>
+                        <ul>
+                            <li><span class="-highlight">Crockford</span> way</li>
+                            <li>ES5 way</li>
+                            <li>ES2015 way</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Inheritance <span class="-highlight">Crockford way</span></h2>
+                        <pre class="fragment"><code>
+function extend(Child, Parent) {
+    var F = function() { }
+    F.prototype = Parent.prototype;
+    Child.prototype = new F();
+    Child.prototype.constructor = Child;
+    Child.superclass = Parent.prototype; // optional
+}
+					</pre></code>
+                    </section>
+                    <section>
+                        <h2>Inheritance <span class="-highlight">ES5 way</span></h2>
+                        <pre class="fragment"><code>
+function extend(Child, Parent) {
+    Child.prototype = Object.create(Parent.prototype);
+    Child.prototype.constructor = Child;
+    Child.superclass = Parent.prototype; // optional
+}
+					    </pre></code>
+                    </section>
+                    <section>
+                        <h2>Inheritance <span class="-highlight">ES5 way</span></h2>
+<pre class="minimal-code"><code>
+function extend(Child, Parent) {
+    Child.prototype = Object.create(Parent.prototype);
+    Child.prototype.constructor = Child;
+    Child.superclass = Parent.prototype; // optional
+}
+</pre></code>
+<pre class="fragment minimal-code" data-fragment-index="0"><code>
+function LegoBatMan(name) {
+    LegoBatMan.superclass.constructor.call(this, name);
+}
+</pre></code>
+<pre class="fragment minimal-code" data-fragment-index="1"><code>
+extend(LegoBatMan, LegoMan);
+</pre></code>
+                        <div style="position: relative;">
+                            <img data-src="img/protolinks-2.png" style="width: 50%;" />
+                            <img class="fragment" data-fragment-index="0" data-src="img/es5-inheritance-0.png" style="width: 50%; height: 100%; position: absolute; transform: translateX(-100%);" />
+                            <img class="fragment" data-fragment-index="1" data-src="img/es5-inheritance-1.png" style="width: 50%; height: 100%; position: absolute; transform: translateX(-100%);" />
+                            <img class="fragment" data-fragment-index="2" data-src="img/es5-inheritance-1-5.png" style="width: 50%; height: 100%; position: absolute; transform: translateX(-100%);" />
+                            <img class="fragment" data-fragment-index="3" data-src="img/es5-inheritance-2.png" style="width: 50%; height: 100%; position: absolute; transform: translateX(-100%);" />
+                            <img class="fragment" data-fragment-index="4" data-src="img/es5-inheritance-3.png" style="width: 50%; height: 100%; position: absolute; transform: translateX(-100%);" />
+                        </div>
+                    </section>
+                    <section>
+                        <h2>Inheritance <span class="-highlight">ES2015 way</span></h2>
+                        <pre class="fragment"><code>
+class LegoBatMan extends LegoMan {
+    constructor(name) {
+        super(name);
+    }
+
+    say(message) {
+        console.log('|\\__/|');
+        super.say(message);
+        console.log('|\\__/|');
+    }
+}
+					    </pre></code>
+                        <pre class="fragment"><code>
+const bruce = new LegoBatMan('Bruce');
+bruce.say('this city needs a hero');
+// |\__/|
+// Bruce: "this city needs a hero"
+// |\__/|
+					    </pre></code>
+                        <aside class="notes">
+                            super can be called as a constructor + methods
+					    </aside>
+                    </section>
+                    <section>
+                        <h2>Inheritance <span class="-highlight">Be careful</span></h2>
+                        <div style="position: relative; height: 50%;">
+                            <img class="fragment" data-src="img/inheritance-carefull.png" />
+                            <img class="fragment" data-src="img/inheritance-wow.jpeg" style="position: absolute; left: 0;" />
+                        </div>
+                        <aside class="notes">
+                            be carefull with inheritance
+					    </aside>
+                    </section>
+                </section>
+                <section>
+					<h2>Why classes are <span class="-highlight">good</span>?</h2>
+                    <ul>
+                        <li class="fragment">help to define data structures</li>
+                        <li class="fragment">help to organize data relationships</li>
+                        <li class="fragment">modularity</li>
+                        <li class="fragment">extensibility</li>
+                    </ul>
+                    <aside class="notes">
+                        may help with errors like "can not read property on undefined", TypeScript
+					</aside>
+				</section>
+                <section>
+					<h2>Why classes are <span class="-highlight">bad</span>?</h2>
+                    <ul>
+                        <li class="fragment">may result in classes hell</li>
+                        <li class="fragment">a lot of time designing the code</li>
+                        <li class="fragment">may destroy "transparency" of logic</li>
+                        <li class="fragment">not flexible</li>
+                    </ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
