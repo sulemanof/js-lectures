@@ -2,6 +2,7 @@
 [How to make a homework?](./homework-guidelines.md)
 ---
 ### [😇Git](https://slides.com/danielsuleiman/git#/)
+- [Homework](./git/readme.md)
 ### [👨‍💻ES6 Features](https://slides.com/danielsuleiman/es6#/)
 - [Homework](./es6/codewars.md)
 ### [Js Classes](https://sulemanof.github.io/js-lectures/js-classes/presentation/#/)

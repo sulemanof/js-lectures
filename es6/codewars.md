@@ -1,5 +1,5 @@
-Codewars
-
+Your homework is to register on [Codewars](https://www.codewars.com/) (use auth with github account) and solve javascript tasks in play mode. Just check it, it is quite fun. *You will start from simle, but the complexity will increase*
+---
   - Part I
      1. http://www.codewars.com/kata/opposite-number
      2. http://www.codewars.com/kata/basic-mathematical-operations
@@ -35,8 +35,9 @@ Codewars
      6. http://www.codewars.com/kata/sum-of-digits-slash-digital-root/
      7. http://www.codewars.com/kata/fun-with-es6-classes-number-2-animals-and-inheritance
      8. http://www.codewars.com/kata/fun-with-es6-classes-number-3-cuboids-cubes-and-getters
-  - __Optional__
-     - http://www.codewars.com/kata/lazy-evaluation
-     - http://www.codewars.com/kata/tail-recursion-with-trampoline
-     - http://www.codewars.com/kata/functional-sql
-     - http://www.codewars.com/kata/can-you-get-the-loop
+---
+__Optional__
+   - http://www.codewars.com/kata/lazy-evaluation
+   - http://www.codewars.com/kata/tail-recursion-with-trampoline
+   - http://www.codewars.com/kata/functional-sql
+   - http://www.codewars.com/kata/can-you-get-the-loop
