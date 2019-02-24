@@ -5,6 +5,8 @@
 - [Homework](./git/readme.md)
 ### [👨‍💻ES6 Features](https://slides.com/danielsuleiman/es6#/)
 - [Homework](./es6/codewars.md)
+- [Kahoot.it!](https://play.kahoot.it/#/k/21a15928-427c-45f0-a326-6eb55c5d2092
+) - a comprehensive and fun ES6 quiz for the whole class
 ### [Js Classes](https://sulemanof.github.io/js-lectures/js-classes/presentation/#/)
 - [Homework](./js-classes/readme.md)
 ### [Async development (Promises)](https://sulemanof.github.io/js-lectures/async-development/presentation/#/)
@@ -12,7 +14,7 @@
 - [browser event loop](https://itnext.io/how-javascript-works-in-browser-and-node-ab7d0d09ac2f)
 - [free weather API](https://www.apixu.com/)
 ### [🏠DOM, BOM, browser storage](https://slides.com/danielsuleiman/dombom/#/)
-- [Homework example](./dom-bom/homework.gif)
+- [Homework](./dom-bom/readme.md)
 ### [NPM](https://slides.com/danielsuleiman/npm#/)
 - [Homework](./npm/task.md)
 ### [📦Webpack 4](https://slides.com/danielsuleiman/webpack/#/)
