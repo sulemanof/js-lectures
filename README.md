@@ -26,3 +26,4 @@
 ### [Redux](https://slides.com/danielsuleiman/redux/#/)
 - [Getting Started with Redux](https://egghead.io/courses/getting-started-with-redux) - a comprehensive Redux tutorial by Dan Abramov (Redux creator)
 - [Homework](./redux/Homework.md)
+### [👨‍🎓Diploma](./diploma/readme.md)
