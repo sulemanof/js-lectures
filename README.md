@@ -13,6 +13,7 @@
 - [Homework](./async-development/readme.md)
 - [browser event loop](https://itnext.io/how-javascript-works-in-browser-and-node-ab7d0d09ac2f)
 - [free weather API](https://www.apixu.com/)
+- [LocationIQ - free maps API](https://locationiq.com/)
 ### [🏠DOM, BOM, browser storage](https://slides.com/danielsuleiman/dombom/#/)
 - [Homework](./dom-bom/readme.md)
 ### [NPM](https://slides.com/danielsuleiman/npm#/)
