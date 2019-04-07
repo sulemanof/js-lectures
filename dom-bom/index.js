@@ -30,3 +30,46 @@ button.addEventListener('click', getWeather);
 position.addEventListener('click', () => {
   navigator.geolocation.getCurrentPosition(({coords}) => getWeather(`${coords.latitude},${coords.longitude}`));
 });
+
+
+//Add your Unwired Maps Access Token here (not the API token!)
+unwired.key = mapboxgl.accessToken = 'pk.a5c3fbf2119bfb2275b62eddbccd76b3';
+//Define the map and configure the map's theme
+var map = new mapboxgl.Map({
+    container: 'map',
+    attributionControl: false, //need this to show a compact attribution icon (i) instead of the whole text
+    style: unwired.getLayer("streets"), //get Unwired's style template
+    zoom: 11,
+    center: [78.4008997, 17.4206485]
+});
+            
+//Add Unwired's Layer Control plugin            
+//Define layers you want to add to the layer controls; the first element will be the default layer
+var layers = ["streets", "earth", "hybrid"];
+map.addControl(new unwiredLayerControl({
+    key: unwired.key,
+    layers: layers
+}), 'top-left');
+
+//Add Navigation controls to the map to the top-right corner of the map
+var nav = new mapboxgl.NavigationControl();
+map.addControl(nav, 'top-right');
+
+
+//Add a 'full screen' button to the map
+map.addControl(new mapboxgl.FullscreenControl());
+
+//Add a Scale to the map
+map.addControl(new mapboxgl.ScaleControl({
+    maxWidth: 80,
+    unit: 'metric' //imperial for miles
+}));
+
+//Add Geolocation control to the map (will only render when page is opened over HTTPS)
+map.addControl(new mapboxgl.GeolocateControl({
+    positionOptions: {
+        enableHighAccuracy: true
+    },
+    trackUserLocation: true
+}));
+
