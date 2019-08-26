@@ -1,8 +1,5 @@
 .tableData {
     display: none;
-    border: 2px solid grey;
-    border-spacing: unset;
-    margin: 20px auto;
 }
 
 .tableData.visible {
@@ -19,20 +16,8 @@
     flex-direction: column;
 }
 
-td {
-    border: 1px solid grey;
-    margin: 0;
-    padding: 10px;
-    box-sizing: border-box;
-    min-width: 120px;
-    font-family: sans-serif;
+.tableData td {
     text-align: center;
-}
-
-tr {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
 }
 
 thead {

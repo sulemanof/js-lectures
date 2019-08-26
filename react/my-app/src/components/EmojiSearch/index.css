@@ -1,0 +1,9 @@
+.emojiTable {
+  margin-top: 10px;
+}
+
+.emojiTable img {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+}

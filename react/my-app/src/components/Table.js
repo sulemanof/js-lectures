@@ -4,7 +4,7 @@ import TableRaw from './TableRaw';
 class Table extends Component {
     render() {
         return(
-            <table className={`tableData ${this.props.raws.length ? 'visible' : ''}`}>
+            <table className={`tableData ${this.props.raws.length ? 'visible' : '' } table table-hover`}>
                 <thead>
                     <tr>
                         <td>{'City'}</td>
