@@ -1,6 +1,9 @@
 # In class task
+## Notification
 
 Component must contain the following elements:
+
+![Notification](./task.png)
 
 * (1) Closing icon. Click on it closes the component.
 * (2) Checkbox that disables notification and sets a flag into local storage. If the flag is set, component won't be shown when the page reloads.
