@@ -15,6 +15,7 @@
 - [free weather API](https://www.apixu.com/)
 - [LocationIQ - free maps API](https://locationiq.com/)
 ### [🏠DOM, BOM, browser storage](https://slides.com/danielsuleiman/dombom/#/)
+- [Classwork](./dom-bom/inClassTask.md)
 - [Homework](./dom-bom/readme.md)
 ### [NPM](https://slides.com/danielsuleiman/npm#/)
 - [Homework](./npm/task.md)
