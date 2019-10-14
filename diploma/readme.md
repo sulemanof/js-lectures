@@ -1,8 +1,7 @@
 ### Choose any app to create it and proove your knowledge
 ---
-- [Calculator App](./calculator.md) ➗✖
-- [Todo App](./todo.md) ✅
 - [Movie App](./movies.md) 🎬
+- [Match Match Game](./match-match-game.md) 
 ---
 ### Common requirements for all of apps:
 - create a github repo with the name of chosen app;
