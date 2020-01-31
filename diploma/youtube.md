@@ -23,13 +23,10 @@ YouTube REST API should be accessed via cross-domain XHR requests.
     - You can find a more detailed documenation here - https://developers.google.com/youtube/v3/
 
 ### UI Examples:
-#### Default view:
+####  One:
 ![](https://i.imgur.com/W7CTv9X.png)
 
-#### Resized window
-![](https://i.imgur.com/U5QX7cA.png)
-
-#### Mobile version
-![](https://i.imgur.com/MIFv1sV.png)
+#### Two
+![](./images/youtube.gif)
 
 
