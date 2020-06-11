@@ -1,7 +1,8 @@
 module.exports = {
     "extends": "airbnb-base",
     "env": {
-      "browser": true
+      "browser": true,
+      "mocha": true
     },
     "rules": {
       "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]

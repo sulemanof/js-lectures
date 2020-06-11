@@ -4,7 +4,9 @@
   "description": "The lecture book for TMS School",
   "main": "index.js",
   "scripts": {
-    "test-es6": "mocha ./es6"
+    "test-filter": "mocha ./es6/filter.test",
+    "test-counter-basic": "mocha ./es6/counter_basic.test",
+    "test-counter-chainable": "mocha ./es6/counter_chainable.test"
   },
   "repository": {
     "type": "git",
