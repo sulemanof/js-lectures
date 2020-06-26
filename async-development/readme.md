@@ -1,4 +1,5 @@
 You need to implement a weather search:
+- use [free weather rest API](https://weatherstack.com/)
 - create an `index.html` with markup:
     - an input with label
     - a button
