@@ -1,9 +1,14 @@
 # In class task
-## Notification
+## Notification 🔔
 
-Component must contain the following elements:
+__Create a script which dynamically creates a common notification component like on the image below:__
+
 
 ![Notification](./task.png)
+
+You can use this array of [mocked data](./MOCK_DATA.json).
+
+Component must contain the following elements:
 
 * (1) Closing icon. Click on it closes the component.
 * (2) Checkbox that disables notification and sets a flag into local storage. If the flag is set, component won't be shown when the page reloads.
