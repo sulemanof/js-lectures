@@ -7,6 +7,7 @@
 - add your mentor as a contributor:
   - [Daniil Suleiman](https://github.com/sulemanof)
   - [Aliaksei Astafyeu](https://github.com/tr3v3r)
+  - [Dzmitry Martyniuyk](https://github.com/jathpr)
 - create a `.gitignore` and `.editorconfig` files in the root (read more about this files [gitignore](https://git-scm.com/docs/gitignore), [editorconfig](https://editorconfig.org/));
 
 ---
