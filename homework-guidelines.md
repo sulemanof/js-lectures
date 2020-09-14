@@ -1,20 +1,19 @@
-## If you still do not have a [GitHub](https://github.com/) account, please create it!
+### Следующие действия вам необходимо сделать только один раз:
 
----
-### Next steps do only once:
-- create a repo with name `js-pro-course` - this repo will be a container for all of your future homeworks;
-- create a `README.md` file with the repo description (write down your name there, add any additional info);
-- add your mentor as a contributor:
+- если у вас всё ещё нет [GitHub](https://github.com/) аккаунта, создайте его!
+- создайте новый репозиторий с названием `js-pro-course` - этот репозиторий будет единым `контейнером` для всех слудующих домашних заданий;
+- создайте `README.md` файл в корне проекта с описанием (ФИО, фото, доп. инфо - по желанию). [Как оформлять файлы расширения `.md`](https://guides.github.com/features/mastering-markdown/);
+- добавьте своего ментора в качестве контрибьютера к проекту (выберите из списка). Контрибьютер нужен для последующей проверки ваших домашних заданий, которые будут сделаны с помощью `пулл реквеста` - [что это](https://habr.com/ru/post/125999/):
   - [Daniil Suleiman](https://github.com/sulemanof)
   - [Aliaksei Astafyeu](https://github.com/tr3v3r)
-- create a `.gitignore` and `.editorconfig` files in the root (read more about this files [gitignore](https://git-scm.com/docs/gitignore), [editorconfig](https://editorconfig.org/));
+- создайте файлы `.gitignore` и `.editorconfig` в корне проекта (подробно о предназначении этих файлов [gitignore](https://git-scm.com/docs/gitignore), [editorconfig](https://editorconfig.org/));
 
 ---
 
-### Next steps do in every homework:
+### Следующие действия применимы к каждому домашнему заданию:
 
-- **every homework should be started in a new branch in this repo with the name of lecture**;
-- create a folder with the name of lecture;
-- commit files into this folder, try make commits on every feature you did (read the article - [How to name a commit](https://habr.com/ru/post/183646/));
-- when the homework is done, push your changes to the remote branch with the same name;
-- create a `pull request` from your branch into `master` branch, add your mentor as a reviewer;
+- **каждая новая домашняя работа должна начинаться в новом ветке вашего репозитория, название ветки должно отображать название лекции**;
+- создайте новую папку с названием лекции в корне репозитория;
+- делайте изменения непосредственно в этой папке, постарайтесь грамотно делать коммиты отдельно для каждой новой фичи ([Стиль именования коммитов](https://habr.com/ru/post/183646/));
+- когда домашняя работа готова, отправьте изменения на удалённый репозиторий (`git push origin <BRANCHNAME>`)
+- создайте `pull request` из вашей новой ветки на ветку `master`, добавьте вашего ментора в качестве ревьювера;

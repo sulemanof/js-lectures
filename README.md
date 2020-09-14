@@ -1,5 +1,5 @@
-# js-lectures
-[How to make a homework?](./homework-guidelines.md)
+# JS Pro course
+[Как выполнять домашние задания. Общие критерии](./homework-guidelines.md)
 ---
 ### [😇Git](https://slides.com/danielsuleiman/git#/)
 - [Homework](./git/readme.md)
