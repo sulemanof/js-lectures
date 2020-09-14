@@ -1,4 +1,4 @@
-Your homework is to register on [Codewars](https://www.codewars.com/) (use auth with github account) and solve javascript tasks in play mode. Just check it, it is quite fun. *You will start from simle, but the complexity will increase*
+Зарегистрируйтесь на портале [Codewars](https://www.codewars.com/) (для автоизации удобнее всего использовать ваш Github аккаунт). Решайте задачи по JS в игровой форме. Просто попробуйте, это круто и интересно. *Задания начинаются с более простых, затем сложность увеличивается*. Создавайте свои задачи, решайте уже существующие, развивайтесь 😉
 ---
   - Part I
      1. http://www.codewars.com/kata/opposite-number

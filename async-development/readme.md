@@ -1,13 +1,15 @@
-You need to implement a weather search:
-- use [free weather rest API](https://weatherstack.com/)
-- create an `index.html` with markup:
-    - an input with label
-    - a button
-    - divs for requested data
-    - use your imagination for UI/UX
-- create a `style.css` file with styles (try yourself to create a beautiful page), include it into `index.html`
-- create an `index.js` file with the next logic:
-    - when user clicks a `find` button, user should see the weather from the chosen city
-    - you could also include any type of validation (up to you)
+Вам необходимо создать приложение по поиску погоды:
+- используйте бесплатное [REST API](https://weatherstack.com/) для данных;
+- создайте `index.html` с разметкой:
+    - html `input` & `label`
+    - html `button`
+    - `div` элементы для полученных данных
+    - для построение красивого UI/UX используйте воображение 😃;
+- создайте `style.css` файл со стилями (попробуйте сделать это красиво, применив свои навыки), include it into `index.html`
+- создайте `index.js` файл со следующей логикой:
+    - когда пользователь кликает кнопку `Поиск` или нажимает `Enter` на клавиатуре после ввода строки поиска, он должен получить таблицу с данными о погоде в выбранном городе;
+    - подумайте о грамотной валидации полей;
     
+## Итоговый пример, как может выглядеть ваше приложение:
+
 ![homework example](./homework-demo.gif)
