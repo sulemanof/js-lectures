@@ -3,6 +3,7 @@
 ---
 ### [😇Git](https://slides.com/danielsuleiman/git#/)
 - [Homework](./git/readme.md)
+- [Git Quiz](https://create.kahoot.it/v2/share/3f5db8b0-4a4f-4c9b-9011-e001ddfefcd0)
 ### [👨‍💻ES6 Features](https://slides.com/danielsuleiman/es6#/)
 - [Homework](./es6/codewars.md)
 ### [Js Classes](https://sulemanof.github.io/js-lectures/js-classes/presentation/#/)
