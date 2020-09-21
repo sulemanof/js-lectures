@@ -1,12 +1,12 @@
-# In class task
-## Notification 🔔
+# Создаём свой компонент
+## Notifications 🔔
 
-__Create a script which dynamically creates a common notification component like on the image below:__
+__Напишите скрипт, который динамически будет создавать и подключать компонент нотификаций к любому приложению:__
 
 
 ![Notification](./task.png)
 
-You can use this array of [mocked data](./MOCK_DATA.json).
+В качестве данных можете использовать следующий мок - [mocked data](./MOCK_DATA.json).
 
 Component must contain the following elements:
 

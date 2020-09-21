@@ -1,17 +1,11 @@
-- check if you have the Node.js on your computer (type `node -v` on the command line)
-- create a `package.json` in the folder with the Weather App (use the `npm init` command)
-- install the `jquery` npm package
-- install the `browserify`npm package
-- import the `jquery` into your `.js` file
-- rewrite your code using the `jquery` (replace all the DOM manipulating functions like `addEventListener`, `querySelector`, `getElementById` and so on with the `jquery` functions)
-- create a `bundle`, include in in the main html and try it out
-- save the bundle creation command into the `npm scripts`
+- установите/обновите Node.js на ваш компьтер, если еще не установлен (пропишите команду `node -v` в командной строке для проверки)
+- создайте файл `package.json` в папке с вашим проектом `Weather App` (воспользуйтесь командой `npm init`)
+- установите следующие сторонние модули: `browserify`, `jquery`, `lodash`
+- попробуйте переписать ваше приложение с использованием `jquery` (вместо функций, манипулирующих DOM - `addEventListener`, `querySelector`, `getElementById` и т.д - используйте `jquery`)
+- сгенерируйте `bundle`, подключите его к html файлу
+- создайте команду(скрипт) для генерации бандлов и дальнешего запуска с попощью `npm run bundle`
 ---
-- create your own `module` with any function (e.x. `getWeather`) and export it
-- import your function into the entry point (the main `.js` file)
-- try it out, it should works!
+- создайте собственный модуль, вынеся функцию в отдельный файл (например `getWeather`) и экспортируйте ее, затем импортируйте там где необходимо
 ---
-- install `babelify` and `babel` npm packages (follow the official [guidelines](https://github.com/babel/babelify))
-- rewrite your modules using ES6 import/export
-- save the bundle creation command into the `npm scripts`
-- try it out, it should works!
+- установите и настройте следующие модули: `babelify`, `babel` (воспользуйтесь [инструкцией](https://github.com/babel/babelify))
+- перепишите ваши модулю с использованием `ES6 import/export`
