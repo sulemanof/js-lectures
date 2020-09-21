@@ -1,45 +1,46 @@
-To make a homework, please use the [guideline](../homework-guidelines.md)
+Для правильного выполнения д/з не забывайте следовать [гайдлайну](../homework-guidelines.md)
 ---
 
-+ create a branch `js-classes` in your project and checkout it
-+ create a folder `js-classes`, do your work inside this folder
++ создайте новую ветку `js-classes` от ветки `master` в вашем проекте и сделайте `checkout`
++ создайте новую gfgre `js-classes`, выполняйте задание в этой папке
 ---
-You need to implement a common car factory;
-create 3 individual car factories, which inherit from the common;
-create an instance from every individual factory (a particular car with your desired options)
+
+
+**Вам необходимо создать родительский класс по "производству авто". Создайте 3 дочерних класса, которые будут наследовать от родительского. Создайте сущности каждого отдельного класса.**
+
+
 ---
-### implement inheritance in ES5 way
-Use ES5 syntax
-+ create a file `inheritance-es5.js`
-+ create a class `Car` : this function should accept 7 params:  
+### Наследование в ES5 стиле
+Используйте только ES5 синтаксис
++ создайте файл `inheritance-es5.js`
++ создайте класс `Car` : функция, которая принимает 7 аргументов:  
     + name
     + model
     + year
     + color
     + maxSpeed
-    + fuelCapacity - optional parameter, use `60` by default
-    + fuelConsumption - optional parameter, use `10` by default
-+ implement a common car method `getFullName`, which should return a full name (e.x. name + model)
-+ implement a common car method `getAge`, which should return your car age (current year - your car year)
-+ implement a common car method `changeColor`, which should do:
-    - take a parameter (color);
-    - if your car already has the same color, show a message with text (up to you);
-    - if not, change the color and show a message about it.
-+ implement a common car method `calculateWay`, which should do:
-    - take 2 params: `kilometers` and `fuel`;
-    - check if `fuel` < 10, show a message about refuel;
-    - calculate the time that you need to reach the destination, show message about it;
-    - check, if you need to refuel on your road and show a message (how many times you need to refuel)
-+ create 3 another class, which should inherit from `Car` class in ES5 way (e.x. `BMW`, `Lexus`, etc. <--- up to you)
-+ create class properties, which should refers only to that particular car factory, and should not effect others(
-    for example all BMW's would have sunroof, all Lexus's would have climateControl and so on (all properties is up 
-    to you)
+    + fuelCapacity - опциональный параметр, используйте значение `60` по дефолту
+    + опциональный параметр, используйте значение `10` по дефолту
++ напишите `getFullName` метод класса, который должен возвращать название авто (e.x. name + model)
++ напишите `getAge` метод класса, который должен возвращать возраст авто (ТЕКУЩИЙ ГОД - ГОД ВЫПУСКА АВТО)
++ напишите `changeColor` метод класса, который должен:
+    - принимать один параметр (color);
+    - если у авто уже есть такой цвет, показывать сообщение с текстом (например - "Авто уже покрашено в красный цвет");
+    - если нет, поменять цвет авто и сообщить об этом пользователю.
++ напишите `calculateWay` метод класса, который должен:
+    - принимать 2 аргумента: `kilometers` и `fuel`;
+    - прверять если `fuel` < 10, сообщить пользователю;
+    - посчитать среднее время пути, сообщить пользователю;
+    - проверить, нужна ли дозаправка во время пути и сообщить пользователю (если нужна, то сколько)
++ создайте 3 дочерних класса, которые буду наследовать от класса `Car` в ES5 стиле (например: `BMW`, `Lexus`, etc. <--- по желанию)
++ создайте каждому классу уникальные свойства, которые будут присущи только этим уникальным классам(
+    напрмер пусть все BMW могут быть оснащены панорамной крышей, Lexus могут иметь климат контроль и т.д. (примдумайти свои уникальные свойства)
 )
-+ create methods, which should refers only to that particular car factory, and should not effect others
-+ create at least one instance of each class
-+ check your solution in browser console (include your js file in any html)
++ создайте уникальные методы, которые будут присущи этим дочерним классам (на ваш вкус)
++ создайте по крайней мере по одной сущности каждого класса
++ проверьте, как работает ваш код (используйте Chrome Dev Tools для отладки)
 ---
-### implement inheritance in ES6 way (use the `class` keyword)
-Use ES6 syntax only (`let`, `const`, `arrow functions` and so on)
-+ create a file `inheritance-es6.js`
-+ do the same steps as in ES5 mode, but in ES6 syntax (use the `extends` and `super` keywords for inheritance)
+### Наследование в ES6 стиле (`class`)
+Используйте только ES6 синтаксис (`let`, `const`, `arrow functions` и т.д.)
++ создайте файл `inheritance-es6.js`
++ проделйте те же шаги как и в ES5 стиле, только с использованием ES6 синтаксиса (используйте ключевые слова `extends` и `super` для наследования)
