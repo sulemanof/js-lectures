@@ -21,6 +21,7 @@
 ### [🔧 NPM. Работа со сторонними модулями](https://slides.com/danielsuleiman/npm#/)
 - [Домашняя работа 🏠](./npm/task.md)
 ### [🧪 Основы тестирования. Модульное тестированиe JS](https://slides.com/danielsuleiman/testing)
+- [Домашняя работа 🏠](./testing/readme.md)
 ### [📦 Webpack](https://slides.com/danielsuleiman/webpack/#/)
 - [Домашняя работа 🏠](./webpack/homework.md)
 ### [💻 Single Page Application. MVC-концепция](https://slides.com/danielsuleiman/spa#/)
