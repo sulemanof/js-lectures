@@ -1,27 +1,33 @@
-### Your homework is to create a simple todo app ✅
+1. ✅ [Getting Started with Redux](https://egghead.io/courses/getting-started-with-redux) - очень хороший курс по Redux от создателя билиотеки - Дэна Абрамова
+
+2. ### ✅ Создайте простой **TODO**-лист
 ---
-- create a branch `todo-app` from `master`;
-- create a `todo-app` folder inside your homework's folder (if you are using `create-react-app` do it with `npx` command);
-- your `src` folder structure should have `components`, `containers`, `state-management`, `helpers` folders and should look like: 
+- создайте новую ветку `todo-app` от ветки `master`;
+- создайте папку `todo-app` в корне папки со всеми работами и выполняйте домашку в этой папке;
+- папка `src` должна содержать папки `components`, `containers`, `state-management`, `helpers` и структура должна выглядеть следующим образом: 
 
     ![src folder structure](./assets/src.PNG)
-- the `state-management` folder should contain `actions`, `reducers`, `constants` folders, it also should have an `inex.js` file with combined reducers: 
+
+- папка `state-management` должна содержать папки `actions`, `reducers`, `constants` ф также файл `inex.js`, где будут находиться ваши `combined reducers`: 
+
     ![state-management folder structure](./assets/state-management.PNG)
-- create reusable components in `components` folder;
-- create `containers` using `connect()` from `react-redux`;
-- your app should have the next requirements: 
-    - adding a todo with `Form` component;
-    - listing todos under the form;
-    - a todo should have a `delete` and toggle `done` buttons;
-    - there should be a possibility to render `all` todos, only `done` todos and only `active` todos
+
+- в папке `components` должны лежать React компоненты, которые переиспользуются в проекте и не имеют прямого отношения к `redux store`;
+- в папке `containers` должны лежать компонеты, которые знают про `store`, к которому подключаются с помощью функции `connect()` из библиотеки `react-redux`;
+- ваше приложение должно выполнять следующие функции: 
+    - добавление `todo` с помощью компоненты `Form`;
+    - отображение списка ваших `todo`шек;
+    - каждая `todo`шка должна иметь кнопки `delete` и `done` (кнопка `done` должна работать также как отмена действия);
+    - должна быть возможность отображать `all` все тудушки, только `done` выполненные и только `active` активные;
     ---
-    ##### Optional requirements
-    - use [`styled-components`](https://www.styled-components.com/) 💅 for styling;
-    - use a `localstorage` to save your state;
-    - use a [`react-router-dom`](https://reacttraining.com/react-router/web/guides/philosophy) for routing;
+    ##### Опционально:
+    - используйте библиотеку [`styled-components`](https://www.styled-components.com/) 💅 для стилей;
+    - используйте `localstorage` чтобы сохранять состояние приложения;
+    - используйте библиотеку [`react-router-dom`](https://reacttraining.com/react-router/web/guides/philosophy) для роутинга (например страницы `all`, `done`, `active`, `not found`);
     ---
-- create a pull request, add me as a reviewer;
-- attach a gif record of your working app to a PR description;
+- создайте пул реквест, добавьте ментора в ревью;
+- в описании пул реквеста добавьте скриншот или gif вашего приложения;
 ---
-### Final example
+### Как может выглядеть ваше приложение:
+
 ![Homework example](./Homework.gif)
