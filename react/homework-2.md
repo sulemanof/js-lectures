@@ -1,20 +1,20 @@
 ### Emoji
 ---
-You should implement an emoji search based on [json](./emojiList.json)
+Выша задача реализовать поиск эмоджи по следующим данным - [json](./emojiList.json)
 
-Steps to implement:
-- initialize your working directory (you could create a project using `create-react-app` or tune it by yourself with `webpack` and `babel`);
-- you should have one entry point `index.js` , where you should call the `ReactDOM.render`;
-- you should have a `Form` component, which accepts an emoji name;
-- you should have an `EmojiCOntainer` component, which should render `EmojiRow` component;
-- the `EmojiRow` should have a title and an emoji icon: 
+Шаги по реализации:
+- настройте рабочую директорию (вы можете использовать `create-react-app` или настроить самостоятельно с помощью `webpack` и `babel`);
+- файл `index.js` должен быть входной точкой в приложение, где вы вызываете функцию `ReactDOM.render`;
+- компонент `Form` должен принимать строку поиска по емэджи (искать можно как по названию - `title`, так и по ключевым словам - `keywords`);
+- компонент `EmojiCOntainer` должен рендерить другой компонент - `EmojiRow`;
+- компонент `EmojiRow` должен отображать иконку эмоджи и название: 
 
     ![](./emoji/emoji-row.png)
-    + you could just render a standard icon;
-    + you could fetch a png icon from CDN [![](https://data.jsdelivr.com/v1/package/npm/emojione/badge)](https://www.jsdelivr.com/package/npm/emojione) (use the next path: `//cdn.jsdelivr.net/emojione/assets/png/${codePointHex}.png`, where `codePointHex` is `symbol.codePointAt(0).toString(16)`)
-- DO NOT RENDER MORE THAN 15 ROWS ON THE PAGE! (always limit your range);
+    + вы можете отображать стандартную эмоджи либо ->;
+    + отображать картинку по URL [![](https://data.jsdelivr.com/v1/package/npm/emojione/badge)](https://www.jsdelivr.com/package/npm/emojione) (используйте след путь : `//cdn.jsdelivr.net/emojione/assets/png/${codePointHex}.png`, где `codePointHex` можно получить как `symbol.codePointAt(0).toString(16)`)
+- используйте лимит отображения эмоджи - напрмер не больше 15 найденных! (можно реализовать дродаун с выбором лимита строк);
 ---
-Here is the final example:
+Финальный пример:
 
 
 ![Final example](./emoji/emoji-search.gif)

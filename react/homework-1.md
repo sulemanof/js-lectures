@@ -1,18 +1,17 @@
 ### Clicker
 ---
-Your homework is to create a simple clicker using React.
+Реализуйте простой компонент кликер:
 
-Steps to implement:
-- initialize your working directory (you could create a project using `create-react-app` or tune it by yourself with `webpack` and `babel`);
-- you should have one entry point `index.js` , where you should call the `ReactDOM.render`;
-- create a component, which should look similar to next image: 
+- настройте рабочую директорию (вы можете использовать `create-react-app` или настроить самостоятельно с помощью `webpack` и `babel`);
+- файл `index.js` должен быть входной точкой в приложение, где вы вызываете функцию `ReactDOM.render`;
+- создайте компонент следующего вида: 
 ![Clicker](./clicker.png) 
-- when pressing the `+` button it should increment a counter;
-- when pressing the `-` button it should decrement a counter;
-- when pressing the `reload` button it should discard a counter to `0`;
+- нажимая на кнопку `+` счётчик увеличивается на 1;
+- нажимая на кнопку `-` счётчик уменьшается на 1;
+- нажимая кнопку `сброс` счётчик возвращается в начальное значение `0`;
 ---
-The `Clicker` component should be reusable! That means we could paste it many times and it should work independently.
-Here is the final example:
+Итоговый компонент `Clicker` должен быть переиспользуемым! Это означает, что вы можете отрендерить его несколько раз и все счётчики буду работать независимо друг от друга.
+Финальное решение должно выглядеть так:
 ![Final example](./homework-1.gif)
 ---
-[Homework guidelines](../homework-guidelines.md)
+[Общие шаги по выполнению д/з](../homework-guidelines.md)
