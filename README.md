@@ -28,6 +28,7 @@
 ### [🚀 React](https://slides.com/danielsuleiman/react#/)
 - [Домашняя работа (State, Event handling) 🏠](./react/homework-1.md)
 - [Домашняя работа (Forms, Lists) 🏠](./react/homework-2.md)
+- [Работа в классе 💻](./react/in-class-work.md)
 - [Полезные ссылки 🔗](./react/useful-links.md)
 ### [✈ React Router](https://slides.com/danielsuleiman/react-router#/)
 ### [🗽 Redux](https://slides.com/danielsuleiman/redux/#/)
