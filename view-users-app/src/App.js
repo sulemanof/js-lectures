@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import './App.css';
 import { User } from './User';
 import { Posts } from './Posts';
+import Loading from './Loading';
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -26,10 +27,12 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
-      <Posts posts={posts} limit={limit} users={users}/>
-      <Button variant="dark" onClick={onClick}>Show more</Button>
-    </div>
+    posts.length && users.length ?
+      <div className="App">
+        <Posts posts={posts} limit={limit} users={users}/>
+        <Button variant="dark" onClick={onClick}>Show more</Button>
+      </div> : 
+      <Loading />
   );
 }
 

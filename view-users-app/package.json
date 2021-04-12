@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/helper-builder-react-jsx": "^7.12.13",
     "bootstrap": "^4.4.0",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",

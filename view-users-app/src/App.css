@@ -26,3 +26,14 @@
   margin: 10px;
   min-width: 200px;
 }
+
+.loading {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading div {
+  margin: 10px;
+}
