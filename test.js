@@ -1,1 +1,3 @@
-const a = 1;
+function createLog(log) {
+  return `Logged info: ${log}`
+}
