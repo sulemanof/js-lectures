@@ -2,6 +2,25 @@
 
 function createCounter(initialValue) {
   // ***
+  
+ let count = initialValue;
+
+ let objCounter = {
+   showValue: () => {
+     return count;
+   },
+   increment: (num = 1) => {
+     count += num;
+   },
+   decrement: (num = 1) => {
+       count -= num;
+   },
+   discard: () => {
+     count = initialValue;
+   }
+ };
+
+ return objCounter;
 }
 
 /**

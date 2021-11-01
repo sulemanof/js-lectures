@@ -3,6 +3,13 @@
 function filter() {
   // write your solution here
   // do not forget to use es6 syntax
+  let result = [];
+  for(let i = 0; i < infinitNum.length; i++) {
+    if(!result.includes(infinitNum[i])) {
+      result.push(infinitNum[i]);
+    } 
+  }
+ return result;
 }
 
 
